@@ -1,4 +1,3 @@
-import { text } from "express";
 import mongoose from "mongoose";
 
 const productSchema = mongoose.Schema({
@@ -14,4 +13,4 @@ const productSchema = mongoose.Schema({
     textcolor: String,
 })
 
-export default mongoose.model("Owner", productSchema);
+export default mongoose.model("product", productSchema);

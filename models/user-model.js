@@ -12,7 +12,6 @@ const userSchema = mongoose.Schema({
         type: Array,
         default: [],
     },
-    isadmin: Boolean,
     orders: {
         type: Array,
         default: [],
@@ -20,6 +19,6 @@ const userSchema = mongoose.Schema({
     contact: Number,
 })
 
-export default mongoose.model("Owner", userSchema);
+export default mongoose.model("User", userSchema);
 
 

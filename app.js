@@ -2,10 +2,12 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import { __dirname } from './pathconfig.js';
-import db from './config/mongoose-connection.js';
 import ownerRouter from './routes/ownerRouter.js';
 import productsRouter from './routes/productsRouter.js';
 import usersRouter from './routes/usersRouter.js';
+import dotenv from 'dotenv';
+import connectDB from './config/mongoose-connection.js';
+dotenv.config();
 
 const app = express();
 const PORT = 3000;
@@ -20,8 +22,12 @@ app.use("/owner", ownerRouter)
 app.use("/products", productsRouter)
 app.use("/users", usersRouter)
 
-// server listening
-app.listen(PORT, () => {
-    console.log("Server is running...");
+//Database connection
+connectDB().then(() => {
+    console.log("Database connected");
 
-})
+    // server listening
+    app.listen(PORT, () => {
+        console.log("Server is running...");
+    })
+}) 
