@@ -2,8 +2,9 @@ import express from 'express';
 const ownerRouter = express.Router();
 import ownerModel from "../models/owner-model.js";
 
-ownerRouter.get("/", (req, res) => {
-    res.send("owner page")
+ownerRouter.get("/admin", (req, res) => {
+    let success = req.flash("success")
+    res.render("createproducts", { success });
 })
 
 ownerRouter.post("/create", async (req, res) => {
