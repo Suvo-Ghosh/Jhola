@@ -9,6 +9,6 @@ usersRouter.get("/", () => {
 
 usersRouter.post("/register", registerUser);
 usersRouter.post("/login", loginUser);
-usersRouter.post("/logout", logOut);
+usersRouter.get("/logout", logOut);
 
 export default usersRouter;

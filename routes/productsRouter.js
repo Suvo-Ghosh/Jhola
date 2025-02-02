@@ -2,7 +2,6 @@ import express from 'express';
 const productsRouter = express.Router();
 import { upload } from '../config/multer-config.js';
 import productModel from '../models/product-model.js';
-import { name } from 'ejs';
 
 productsRouter.post("/create", upload.single("image"), async (req, res) => {
     const { buffer } = req.file;
